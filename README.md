@@ -1,1 +1,1 @@
-To run: `node run.js -- <day number>` e.g. `node run.js -- 2`.
+To run: `npm start -- <day number>` e.g. `npm start -- 2`.
