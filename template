@@ -1,0 +1,21 @@
+
+// --
+
+function first(input) {
+
+}
+
+function second(input) {
+  
+}
+
+function format(input) {
+  return input;
+}
+
+// --
+
+module.exports = { 
+  first: (input) => first(format(input)),
+  second: (input) => second(format(input))
+};

@@ -1,4 +1,7 @@
+
 const { range } = require('./util');
+
+// --
 
 function first(input) {
   let prev = input.shift();
@@ -19,18 +22,20 @@ function second(input) {
     const plus3 = input[i + 3];
 
     if (plus3 - cur > 0) count++;
-    else console.log(plus3 - cur)
   }
 
   return count;
 }
 
+function format(input) {
+  return input
+    .split('\n')
+    .map((numStr) => parseInt(numStr));
+}
+
 // --
 
-const input = require('./input')('01')
-  .split('\n')
-  .map((numStr) => parseInt(numStr));
-
-console.log(first([...input]));
-console.log(second([...input]));
-
+module.exports = { 
+  first: (input) => first(format(input)),
+  second: (input) => second(format(input))
+};
