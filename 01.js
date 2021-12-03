@@ -1,5 +1,7 @@
 const { range } = require('./util');
 
+// --
+
 function first(input) {
   let prev = input.shift();
   let count = 0;
@@ -24,12 +26,15 @@ function second(input) {
   return count;
 }
 
+function format(input) {
+  return input
+    .split(/\r\n|\r|\n/)
+    .map((numStr) => parseInt(numStr));
+}
+
 // --
 
-const input = require('./input')('01')
-  .split('\n')
-  .map((numStr) => parseInt(numStr));
-
-console.log(first([...input]));
-console.log(second([...input]));
-
+module.exports = {
+  first: (input) => first(format(input)),
+  second: (input) => second(format(input))
+}

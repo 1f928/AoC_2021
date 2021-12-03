@@ -47,7 +47,7 @@ function second(input) {
 
 function format(input) {
   return input
-    .split('\n')
+    .split(/\r\n|\r|\n/)
     .map((line) => {
       const [direction, distance] = line.split(' ');
       return { direction, distance: parseInt(distance) }; 

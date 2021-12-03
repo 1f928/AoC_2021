@@ -21,22 +21,33 @@ function first(input) {
 }
 
 function second(input) {
-  let ogRating = [...input];
-  let csRating = [...input];
+  let ogValues = [...input];
+  let csValues = [...input];
 
   for (let i = 0; i < input[0].length; i++) {
-    // ogRating
-    const ogPct = ogRating.reduce((count, line) => count + (line[i] ? 1 : 0), 0) / ogRating.length;
-    const csPct = csRating.reduce((count, line) => count + (line[i] ? 1 : 0), 0) / ogRating.length;
+    if (ogValues.length > 1) {
+      const ogPct = ogValues.reduce((count, line) => 
+        count + (line[i] ? 1 : 0), 0) / ogValues.length;
+      ogValues = ogValues.filter((line) => ogPct >= 0.5 ? line[i] : !line[i]);
+    }
 
-    ogRating = 
-    console.log(ogPct, csPct);
+    if (csValues.length > 1) {
+      const csPct = csValues.reduce((count, line) => 
+        count + (line[i] ? 1 : 0), 0) / csValues.length;
+      csValues = csValues.filter((line) => csPct < 0.5 ? line[i] : !line[i]);
+    }
   }
+
+  const toNum = (bools) => parseInt(bools
+    .map((bool) => bool ? "1" : "0")
+    .join(''), 2);
+    
+  return toNum(ogValues[0]) * toNum(csValues[0]);
 }
 
 function format(input) {
   return input
-    .split('\r\n')
+    .split(/\r\n|\r|\n/)
     .map((line) => line.split('').map((char) =>
       char === "1" ? true : false
     ));

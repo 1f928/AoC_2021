@@ -1,6 +1,8 @@
 
 const getInput = require('./input');
 
+// --
+
 const dayNumber = parseInt(process.argv[2]);
 
 if (isNaN(dayNumber) || dayNumber < 1 || dayNumber > 25) {
