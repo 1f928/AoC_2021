@@ -1,4 +1,4 @@
-const { range } = require('./util');
+const { range } = require('../util');
 
 // --
 

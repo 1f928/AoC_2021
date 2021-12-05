@@ -14,7 +14,7 @@ const formattedNum = dayNumber.toString().padStart(2, '0')
 
 let first, second;
 try {
-  ({ first, second } = require(`./${formattedNum}`));
+  ({ first, second } = require(`./solutions/${formattedNum}`));
 } catch (err) {
   console.error(`Day ${dayNumber} has not been completed yet!`)
   process.exit(1);

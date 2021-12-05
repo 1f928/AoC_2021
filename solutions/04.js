@@ -1,5 +1,5 @@
 
-const { range, sum } = require('./util');
+const { range, sum } = require('../util');
 
 // --
 
