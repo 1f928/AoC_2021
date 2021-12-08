@@ -1,7 +1,9 @@
 
 module.exports = {
   sum,
-  range
+  range,
+  zeroes,
+  sortStr,
 }
 
 function sum(nums) {
@@ -34,4 +36,12 @@ function* range(start = 0, end, step) {
   ) {
     yield i;
   }
+}
+
+function zeroes(len) {
+  return Array.from({ length: len }).map(_ => 0);
+}
+
+function sortStr(str) {
+  return str.split('').sort((a, b) => a.localeCompare(b)).join('');
 }
