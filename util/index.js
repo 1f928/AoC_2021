@@ -13,6 +13,9 @@ function sum(nums) {
 function* range(start = 0, end, step) {
   // Validation and setup
   if (isNaN(end)) {
+    if (start === 0) {
+      return;
+    }
     end = start - 1;
     start = 0;
   }

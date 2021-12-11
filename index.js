@@ -16,8 +16,12 @@ let first, second;
 try {
   ({ first, second } = require(`./solutions/${formattedNum}`));
 } catch (err) {
-  console.error(`Day ${dayNumber} has not been completed yet!`)
-  process.exit(1);
+  if (err.code === 'MODULE_NOT_FOUND') {
+    console.error(`Day ${dayNumber} has not been completed yet!`);
+    process.exit(1);
+  } else {
+    throw err;
+  }
 }
 
 let input;
