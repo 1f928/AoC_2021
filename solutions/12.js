@@ -80,20 +80,20 @@ function format(input) {
     .split(/\r\n|\r|\n/)
     .map((line) => line.split('-'));
 
-    const connections = {}
-    for ([cave1, cave2] of input) {
-      if (!connections[cave1]) connections[cave1] = [];
-      if (!connections[cave2]) connections[cave2] = [];
-      connections[cave1].push(cave2);
-      connections[cave2].push(cave1);
-    }
-    
-    // Remove ability to return to start
-    for (key in connections) {
-      connections[key] = connections[key].filter((cave) => cave !== 'start');
-    }
+  const connections = {}
+  for ([cave1, cave2] of input) {
+    if (!connections[cave1]) connections[cave1] = [];
+    if (!connections[cave2]) connections[cave2] = [];
+    connections[cave1].push(cave2);
+    connections[cave2].push(cave1);
+  }
+  
+  // Remove ability to return to start
+  for (key in connections) {
+    connections[key] = connections[key].filter((cave) => cave !== 'start');
+  }
 
-    return connections;
+  return connections;
 }
 
 // --
