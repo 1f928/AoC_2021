@@ -4,6 +4,8 @@ module.exports = {
   range,
   zeroes,
   sortStr,
+  countElements,
+  zip
 }
 
 function sum(nums) {
@@ -42,9 +44,30 @@ function* range(start = 0, end, step) {
 }
 
 function zeroes(len) {
-  return Array.from({ length: len }).map(_ => 0);
+  return Array(len).fill(0);
 }
 
 function sortStr(str) {
   return str.split('').sort((a, b) => a.localeCompare(b)).join('');
+}
+
+function countElements(eles) {
+  groups = {}
+  for (ele of eles) {
+    if (!groups[ele]) groups[ele] = 1;
+    else groups[ele]++; 
+  }
+  return groups;
+}
+
+function zip(arrs) {
+  const len = arrs[0].length;
+  const zipped = Array.from({ length: len }).map(_ => []);
+  for (i of range(len)) {
+    for (arr of arrs) {
+      zipped[i].push(...arr[i]);
+    }
+  }
+
+  return zipped;
 }
