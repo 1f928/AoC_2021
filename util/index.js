@@ -1,15 +1,21 @@
 
 module.exports = {
   sum,
+  product,
   range,
   zeroes,
   sortStr,
   countElements,
-  zip
+  zip,
+  factsum
 }
 
 function sum(nums) {
   return nums.reduce((sum, num) => sum + num, 0);
+}
+
+function product(nums) {
+  return nums.reduce((product, num) => product * num, 1);
 }
 
 function* range(start = 0, end, step) {
@@ -70,4 +76,12 @@ function zip(arrs) {
   }
 
   return zipped;
+}
+
+function factsum(n) {
+  if (n % 2 === 0) {
+    return (n - 1) * Math.ceil((n - 1) / 2) + n;
+  } else {
+    return n * Math.ceil(n / 2);
+  }
 }
